@@ -1,0 +1,55 @@
+<div >
+    <table>
+        <tr >
+            <td style=" border: solid 1.5px;background-color:rgb(138, 138, 244) ;">
+                Transactionlist <br/>
+                <!-- {{transactionlistCount}}   -->
+            </td>
+        </tr>
+        <tr>
+            
+            <td style=" border: solid 1.5px;background-color:rgb(234, 144, 221) ;">
+                Filter Transaction 
+                transactionHistory
+                
+                    <select #transactionHistory (change)="getFilterData(transactionHistory.value)">
+                        <option> All transactions </option>
+                        <option> By year </option>
+                        <option> By month </option>
+                        <option> By day </option>
+                    </select>
+                   
+            
+            </td>
+            
+        </tr>
+    </table>
+   
+
+
+</div>
+
+
+
+<hr/>
+<div *ngFor="let t of allTransaction">
+<table>
+    <tr>
+        <td> 
+            <h2>{{t.transactionName}} </h2>
+            <hr/>
+            
+            Transaction Amount{{t.amount}} 
+             
+            <br/>
+            Transaction Date {{t.date}} Days 
+            <hr/>
+            
+            <br/>
+            <button value="{{t.transactionId}}" (click)="viewTransactionDetails(transaction.value)" #transaction> View Details </button> 
+            
+        </td>
+        
+    </tr>
+</table>
+</div>

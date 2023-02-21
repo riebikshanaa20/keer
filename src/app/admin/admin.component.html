@@ -1,0 +1,62 @@
+<table style="background-color: rgb(239, 225, 225);border: solid 2px ">
+    <tr>
+        <td style="width: 20%; background-color: rgb(244, 221, 226);">
+        
+  <table>
+    <tr>
+        <td> Enter  Transaction Id </td>
+        <td> <input type="text" value="101" #transactionId/> </td>
+    </tr>
+    <tr>
+        <td> Enter  Transaction Name </td>
+        <td> <input type="text" value="Dinesh"#transactionName/> </td>
+    </tr>
+    <tr>
+        <td> Date </td>
+        <td> <input type="date" id="date" #date/> </td>
+    </tr>
+    <tr>
+        <td> Time </td>
+        <td> <input type="text"  #time/>  
+            <select>
+                <option>AM</option>
+                <option>PM</option>
+            </select>
+        
+        </td>
+        
+    </tr>
+    <tr>
+        <td>History</td>
+        <td> 
+            <select #history>
+                <option> All transactions</option>
+                <option> By year</option>
+                <option> By month</option>
+                <option> By day </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td> Amount </td>
+        <td> <input type="text" value= "2000" #amount/> </td>
+    </tr>
+
+    <tr>
+        <td> <input type="reset" style="border: solid 1.5px;border-radius: 5px;" vaule="Clear All"></td>
+        <td> <input type="button" style="border: solid 1.5px;border-radius: 5px;" 
+            (click)="readTransaction(transactionId.value,transactionName.value,date.value,time.value,history.value,amount.value)"
+            value="Add Transaction" /> </td>
+    </tr>
+    
+  </table>
+  <br/>
+</td>
+<td style="width: 80%;">
+            
+    <app-tdftransaction-component></app-tdftransaction-component>
+
+</td>
+</tr>
+</table>
+

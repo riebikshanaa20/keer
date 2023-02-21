@@ -1,0 +1,70 @@
+<div style="margin-left: 15%;width: 25%; height: 100%; margin-bottom: 20%;">
+    <form (ngSubmit)="doFormSubmit()" #transactionForm="ngForm">
+
+        <div class="form-group">
+
+            <label>Enter Transaction Id</label>
+            <input type="text" [(ngModel)]="t.transactionId"  
+            class="form-control" id="tid" 
+             name="tid" #transactionId="ngModel"  required pattern="[0-9][0-9][0-9]">
+            <div *ngIf="transactionId.invalid">
+                <span style="color: red;" *ngIf="transactionId.errors?.['required']">
+                   
+                   Transaction Id is required Field 
+               </span> 
+               <span style="color: red;" *ngIf="transactionId.errors?.['pattern']">
+                   Transaction Id is not valid
+               </span>
+             </div>
+
+
+             
+        </div>
+
+
+        <div class="form-group">
+            <label >Transaction Name</label>
+            <input type="text" #transactionName="ngModel"  pattern="[a-zA-Z]+"    [(ngModel)]="t.transactionName" class="form-control" id="tname" name="tname" placeholder="exp {like Ramesh , Mahesh}" required>
+            <div *ngIf="transactionName.invalid">
+                <span style="color: red;" *ngIf="transactionName.errors?.['required']">
+                   
+                   Transaction Name is required Field 
+               </span> 
+               <span style="color: red;" *ngIf="transactionName.errors?.['pattern']">
+                Transaction Name is not valid
+               </span>
+             </div>
+        </div>          
+        
+        <div class="form-group">
+            <label>Date</label>
+            <input type="text"  [(ngModel)]="t.date" class="form-control" id="tdate"  name="tdate" placeholder="In Days">
+        </div>
+
+        <div class="form-group">
+            <label>Time</label>
+            <input type="text"  [(ngModel)]="t.time" class="form-control" id="ttime"  name="ttime" placeholder="In Hours">
+        </div>
+        <div class="form-group">
+            
+                <label class="mr-sm-2">History</label>
+                <select   [(ngModel)]="t.history"  class="form-control form-control-lg" id="tHistory" name="tHistory">
+                  <option selected>Choose...</option>
+                  <option value="All transactions">All transactions</option>
+                  <option value="By year">By year</option>
+                  <option value="By month">By month</option>
+                  <option value="By day">By day</option>
+                </select>
+          
+        </div> 
+        
+        
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="number"  [(ngModel)]="t.amount"  class="form-control" id="tamount"  name="tamount" placeholder="In USD $">
+        </div>  
+        
+        <button type="submit" class="btn btn-primary mb-2" [disabled]="transactionForm.form.invalid"  >Add Transaction</button>
+    </form>
+    
+</div> 
